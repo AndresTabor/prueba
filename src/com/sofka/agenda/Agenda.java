@@ -2,15 +2,12 @@ package com.sofka.agenda;
 
 public class Agenda {
 
-    Contacto lista_contactos[] = new Contacto[99];
+    static Contacto[] lista_contactos = new Contacto[99];
 
     public void addContact(Contacto contacto, int position) {
         this.lista_contactos[position] = contacto;
     }
 
-    public static void getContact(Contacto contacto) {
-
-    }
 
     public static void deleteContact(Contacto contacto) {
 
@@ -18,6 +15,14 @@ public class Agenda {
 
     public static void updateContact(Contacto contacto) {
 
+    }
+
+    public static void getContact(String name) {
+        for (Contacto contacto : lista_contactos) {
+            if (contacto.name.equals(name)){
+                System.out.println("Nombre: " + contacto.name + "\n" + "Teléfono: " + contacto.celphone);
+            }
+        }
     }
 
     public static void deleAllContact() {
