@@ -1,5 +1,7 @@
 package com.sofka.agenda;
 
+import java.util.Scanner;
+
 public class Agenda {
 
     static Contacto[] lista_contactos = new Contacto[99];
@@ -9,23 +11,52 @@ public class Agenda {
     }
 
 
-    public static void deleteContact(Contacto contacto) {
-
+    public static void deleteContact(String name) {
+        for (int i = 0; i < lista_contactos.length; i++) {
+            if (lista_contactos[i].name.equals(name)){
+                lista_contactos[i]= null;
+                System.out.println("Contacto eliminado");
+                break;
+            }else{
+                System.out.println("Contacto no encontrado");
+            }
+        }
     }
 
-    public static void updateContact(Contacto contacto) {
+    public static void updateContact(String name) {
+        for (Contacto contacto : lista_contactos){
+            if (contacto.name.equals(name)){
+                System.out.println("Ingrese nombre");
+                Scanner scanner = new Scanner(System.in);
+                String nuevoName = scanner.nextLine();
 
+                System.out.println("Ingrese número de contacto");
+                String nuevoNumero = scanner.nextLine();
+
+                contacto.name = nuevoName;
+                contacto.celphone = nuevoNumero;
+                System.out.println("Contacto actualizado");
+                break;
+
+            }else{
+                System.out.println("Contacto no encontrado");
+            }
+        }
     }
 
     public static void getContact(String name) {
         for (Contacto contacto : lista_contactos) {
             if (contacto.name.equals(name)){
                 System.out.println("Nombre: " + contacto.name + "\n" + "Teléfono: " + contacto.celphone);
+                break;
+            }else{
+                System.out.println("Contacto no encontrado");
             }
         }
     }
 
     public static void deleAllContact() {
+
     }
 }
  /*

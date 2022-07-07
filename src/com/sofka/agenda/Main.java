@@ -38,10 +38,12 @@ public class Main {
                     }
                     break;
                 case 2:
-                    //agenda.updateContact(persona);
+                    name = getName();
+                    agenda.updateContact(name);
                     break;
                 case 3:
-                    //agenda.deleteContact(persona);
+                    name = getName();
+                    agenda.deleteContact(name);
                     break;
                 case 4:
                     name = getName();

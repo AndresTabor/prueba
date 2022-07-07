@@ -9,4 +9,7 @@ public class Contacto {
         this.celphone = celphone;
     }
 
+    public Contacto() {
+
+    }
 }
