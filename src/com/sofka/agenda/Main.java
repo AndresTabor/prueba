@@ -50,8 +50,7 @@ public class Main {
                     agenda.getContact(name);
                     break;
                 case 5:
-                    name = getName();
-                    //agenda.deleAllContact(name);
+                    agenda.deleAllContact();
                     break;
                 default:
                     System.out.println("Operación invalida");
@@ -82,8 +81,4 @@ public class Main {
         return celphone;
     }
 
-
-     /*
-     Probando
-      */
 }

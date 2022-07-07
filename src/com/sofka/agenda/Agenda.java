@@ -7,20 +7,24 @@ public class Agenda {
     static Contacto[] lista_contactos = new Contacto[99];
 
     public void addContact(Contacto contacto, int position) {
-        this.lista_contactos[position] = contacto;
+        lista_contactos[position] = contacto;
     }
 
 
     public static void deleteContact(String name) {
+        boolean found = false;
         for (int i = 0; i < lista_contactos.length; i++) {
             if (lista_contactos[i].name.equals(name)){
-                lista_contactos[i]= null;
+                lista_contactos[i]= new Contacto("","");
                 System.out.println("Contacto eliminado");
+                found = true;
                 break;
-            }else{
-                System.out.println("Contacto no encontrado");
             }
         }
+        if (!found){
+            System.out.println("No encontrado");
+        }
+
     }
 
     public static void updateContact(String name) {
@@ -40,23 +44,33 @@ public class Agenda {
 
             }else{
                 System.out.println("Contacto no encontrado");
+                break;
             }
         }
     }
 
     public static void getContact(String name) {
+        boolean found = false;
         for (Contacto contacto : lista_contactos) {
-            if (contacto.name.equals(name)){
-                System.out.println("Nombre: " + contacto.name + "\n" + "Teléfono: " + contacto.celphone);
-                break;
-            }else{
-                System.out.println("Contacto no encontrado");
+            if (contacto != null && contacto.name != null){
+                if (contacto.name.equals(name)){
+                    System.out.println("Nombre: " + contacto.name + "\n" + "Teléfono: " + contacto.celphone);
+                    found = true;
+                    break;
+                }
             }
+
+        }
+        if (!found){
+            System.out.println("No encontrado");
         }
     }
 
     public static void deleAllContact() {
-
+        for (int i = 0; i < lista_contactos.length; i++) {
+            lista_contactos[i] = null;
+        }
+        System.out.println("Contactos eliminados");
     }
 }
  /*
